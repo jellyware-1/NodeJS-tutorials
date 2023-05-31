@@ -17,6 +17,7 @@ app.get("/", function(req, res){
     `);
 });
 
+console.log("after get function")
 
 
 
