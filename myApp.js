@@ -52,6 +52,8 @@ app.get("/:word/echo", function(req, res){
 })
 
 //uses query string
+//handles get request - if using the link
+//handles post request - from form
 app.route("/name").get(function(req, res){
     res.json({"name": (req.query.first + " " + req.query.last)});
 }).post(function(req, res){
