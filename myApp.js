@@ -4,6 +4,10 @@ let bodyParser = require('body-parser');
 let express = require('express');
 let app = express();
 
+//passing middleware into app.use
+//to pass the post data
+app.use(bodyParser.urlencoded({"extended": false}));
+
 //works on all request - logs method, path accessed + IP address of requester
 app.use((req, res, next) => {
     console.log(req.method + " " + req.path  + " - " + req.ip);
@@ -46,10 +50,6 @@ app.get("/json", (req, res)=>{
 app.get("/:word/echo", function(req, res){
     res.json({"echo": req.params.word});
 })
-
-app.use("/name", function(req, res, next){
-    let data = bodyParser.urlencoded({"extended": false});
-});
 
 //uses query string
 app.get("/name", function(req, res){
